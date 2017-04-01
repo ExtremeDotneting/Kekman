@@ -1,0 +1,186 @@
+<Project>
+  <Name>GeneratedDiagram</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>first</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Creature</Name>
+        <Access>Public</Access>
+        <Location left="778" top="682" />
+        <Size width="248" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected char[, ] gameField</Member>
+        <Member type="Field">protected int x</Member>
+        <Member type="Field">protected int y</Member>
+        <Member type="Field">protected char currentSymbol</Member>
+        <Member type="Method">protected void TryRelocate(int x, int y)</Member>
+        <Member type="Method">public int GetX()</Member>
+        <Member type="Method">public int GetY()</Member>
+        <Member type="Method">public abstract void MoveUp()</Member>
+        <Member type="Method">public abstract void MoveDown()</Member>
+        <Member type="Method">public abstract void MoveLeft()</Member>
+        <Member type="Method">public abstract void MoveRight()</Member>
+        <Member type="Constructor">public Creature(char[,] gameField, int x, int y)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Enemy</Name>
+        <Access>Public</Access>
+        <Location left="447" top="682" />
+        <Size width="269" height="140" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public Enemy(char[,] gameField, int x, int y)</Member>
+        <Member type="Method">public bool MoveToPlayer(int playerX, int playerY)</Member>
+        <Member type="Method">protected bool CanMoveTo(int x, int y)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Game</Name>
+        <Access>Public</Access>
+        <Location left="873" top="121" />
+        <Size width="162" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">static void Main(string[] args)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameFieldManager</Name>
+        <Access>Public</Access>
+        <Location left="767" top="298" />
+        <Size width="218" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">char [,] gameField</Member>
+        <Member type="Field">public static readonly char wallSymbol</Member>
+        <Member type="Field">public static readonly char playerSymbol</Member>
+        <Member type="Field">public static readonly char enemySymbol</Member>
+        <Member type="Field">public static readonly char emptySymbol</Member>
+        <Member type="Field">public static readonly char finishSymbol</Member>
+        <Member type="Field">public static readonly int delay</Member>
+        <Member type="Field">Player player</Member>
+        <Member type="Field">List&lt;Enemy&gt; enemyesList</Member>
+        <Member type="Method">string Draw()</Member>
+        <Member type="Method">void Render()</Member>
+        <Member type="Method">public bool StartGame()</Member>
+        <Member type="Constructor">public GameFieldManager(string levelMap)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Menu</Name>
+        <Access>Public</Access>
+        <Location left="1074" top="298" />
+        <Size width="261" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">GameFieldManager gameFieldManager</Member>
+        <Member type="Method">public void UseMenu()</Member>
+        <Member type="Method">bool OpenLevel(string path)</Member>
+        <Member type="Method">int CheckLevelsFiles()</Member>
+        <Member type="Method">int ReadChosedLevel()</Member>
+        <Member type="Method">void WrongLevelChosed()</Member>
+        <Member type="Method">void LevelOpenException()</Member>
+        <Member type="Method">void WriteLevelList(int levelsCount)</Member>
+        <Member type="Method">void ShowGameResult(bool levelCompleted)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Player</Name>
+        <Access>Public</Access>
+        <Location left="1087" top="682" />
+        <Size width="222" height="234" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">bool disposed</Member>
+        <Member type="Field">bool finished</Member>
+        <Member type="Constructor">public Player(char[,] gameField, int x, int y)</Member>
+        <Member type="Method">protected bool CanMoveTo(int x, int y)</Member>
+        <Member type="Method">public void Activate()</Member>
+        <Member type="Method">void CheckIfFinish(int x, int y)</Member>
+        <Member type="Method">public void Kill()</Member>
+        <Member type="Method">public bool IsAlive()</Member>
+        <Member type="Method">public bool IsFinished()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="1" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1062</X>
+          <Y>786</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>815</X>
+          <Y>621</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>917</X>
+          <Y>626</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="1" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>489</X>
+          <Y>657</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>710</X>
+          <Y>570</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="5" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1243</X>
+          <Y>656</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1021</X>
+          <Y>568</Y>
+        </BendPoint>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
